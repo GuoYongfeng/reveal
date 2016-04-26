@@ -1,0 +1,561 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>前端发展趋势 -- 郭永峰</title>
+
+		<meta name="description" content="FE">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1> 2016 前端发展趋势</h1>
+					<h3> 学习最新技术，加速业务开发 </h3>
+					<p>
+						<small>
+							Created by
+							<a href="https://github.com/GuoYongfeng">@郭永峰</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2> 日新月异的前端技术 </h2>
+					<p>
+						就像是隧道终点前的光明，JS生态的最佳实践不再剧烈变更着，现在关于需要学什么越来越明确了 （gaohailang同学译）
+					</p>
+				</section>
+
+				<section>
+					<h2> 概要 </h2>
+					<p>
+						我们将从语言特性、代码风格、构建工具、依赖管理、路由管理、核心类库、状态管理、API 工具库、测试工具等前端开发的方方面面进行技术梳理，为你挑出这些最佳实践并规划面向未来的技术学习之路。
+					</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2> ES6 语法新特性 </h2>
+						<p> 为什么要学习ES6，ES5不好玩么？</p>
+						<p>在2016年，不能使用ES2015/ES2016进行开发的前端技术栈，会是最先停止增长并且走下坡路的！</p>
+					</section>
+					<section>
+						<h2> EXAMPLES... </h2>
+					</section>
+					<section>
+						<h2>LET && CONST</h2>
+						<p>解决变量提升的问题，给JS新增块级作用域</p>
+						<pre><code class="hljs" data-trim contenteditable>
+console.log( n );
+
+function f1() {
+  let n = 5;
+  if (true) {
+    let n = 10;
+  }
+  console.log(n);
+}
+
+const PI = 3.1415;
+console.log(PI);
+
+						</code></pre>
+					</section>
+					<section>
+						<h2>Template String</h2>
+						<p>让我们可以更便捷的定义字符串模板</p>
+						<br>
+						<pre><code class="hljs" data-trim contenteditable>
+let name = '信';
+let word = `我是歌手：\n
+是${name}.`;
+
+console.log( word );
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Arrow Function</h2>
+						<p>
+							箭头函数，不止是简化了function的定义，还解决了function内this关键字指向的问题
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+drink(type = 'water'){
+	// 使用了箭头函数
+	setInterval( () => {
+		// 模板字符串
+		console.log(`${this.name} want to drink ${type}`)
+	}, 1000)
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>More Features</h2>
+						<p>
+							我们课堂上再约......
+						</p>
+					</section>
+
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## 那么如何愉快的使用ES6？
+
+					</script>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## Babel
+
+							Babel 是一个 JavaScript 编译器，用于转化你的 JavaScript 代码
+						</script>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+							## 用途：JavaScript 代码转化
+
+							- 帮你做ES2015 语法的转化，这些转化器能让你现在就使用最新的 JavaScript 语法，而不用等待浏览器提供支持。
+							- 可以对 JSX 支持，我们可以很方便的使用React的JSX语法封装组件，Babel会帮我们将JSX代码转换成浏览器可执行的代码。
+							- 可以组合使用Babel的插件满足我们的转化需求，甚至可以自己封装插件和预设。
+						</script>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+							`ES6 源码`
+							```
+							import path from 'path';
+
+							console.log(path.resolve(__dirname, './src'));
+
+							const fn = a => {
+								alert(a);
+							}
+
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							`Babel 编译后`
+							```
+							'use strict';
+
+							var _path = require('path');
+
+							var _path2 = _interopRequireDefault(_path);
+
+							function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+							console.log(_path2.default.resolve(__dirname, './src'));
+
+							var fn = function fn(a) {
+							  alert(a);
+							};
+							```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## 基础技能
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### Git 的基本使用
+							- init clone add commit pull push
+							- branch分支管理
+							- 连接 Github
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### NPM 包管理
+							- init
+							- install 各种包 && publish 发布
+							- --save && --save-dev
+							- npm scripts
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## 构建工具：Webpack
+
+							> webpack是一款强大的模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Why Webpack
+
+							- 天生支持AMD，CommonJS, ES6 module等模块规范。
+							- 预编译，支持All In One，也支持分包，还可以按需加载
+							- 打开了NPM上广阔的package资源（也可以用browsify）
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Gulp和Grunt说：你不爱我了么
+							（我们都是一群喜新厌旧的人，哈哈.....）
+							> 基于工作流的工具，目前依然是很好用的，而且Gulp + Webpack也是一个很好的组合，相互结合也是不错的选择。
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## BTW
+
+							Webpack 的学习也确实学习曲线有点陡峭，但一旦掌握，会发现很好用。
+
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<h2>技能点总结</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>项目</th>
+								<th>描述</th>
+								<th>难易系数（0-5）</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Babel</td>
+								<td>编译器</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>ES6</td>
+								<td>ECMAScript</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>Webpack</td>
+								<td>模块打包兼构建工具</td>
+								<td>4</td>
+							</tr>
+							<tr>
+								<td>Git</td>
+								<td>分布式软件版本控制</td>
+								<td>2</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## So, Next....
+
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## 核心类库：**React**<br><br>
+
+							- 库，而不是框架<br>
+							- 专注UI<br>
+							- 组件化开发 && JSX 语法<br>
+							- 虚拟DOM，高效渲染<br>
+							- 单向数据流<br>
+							- 支持服务端渲染<br>
+							- 生态：Devtools/Redux/Router/React Native...
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## How About Vue Or Angular?
+
+							> 框架间的竞争并不是零和游戏，主流并不一定只有一个赢家
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							- 2016 年 Vue 会大放异彩，吸收React和Angular的优点，MVVM框架，小而美；阿里即将开源的Weex(Vue Native)是否助推Vue的发展，还有待观察
+							- Angular 2.0，大而全一站到底的框架，也在追赶
+							- 都会有各自的适用场景，Vue和React会在2016表现的很抢眼
+						</script>
+					</section>
+					<section>
+						<h2>React Vue Angular2.0 比武场</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>产品</th>
+									<th>服务端</th>
+									<th>体积</th>
+									<th>体验</th>
+									<th>生态</th>
+									<th>上手</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>React</td>
+									<td>支持</td>
+									<td>50k</td>
+									<td>掌握JSX语法和组件封装</td>
+									<td>最活跃</td>
+									<td>中等</td>
+								</tr>
+								<tr>
+									<td>Vue</td>
+									<td>可能会支持</td>
+									<td>74k</td>
+									<td>基本的HTML/CSS/JS</td>
+									<td>其次</td>
+									<td>容易</td>
+								</tr>
+								<tr>
+									<td>Angular 2.0</td>
+									<td>号称会支持</td>
+									<td>500k+</td>
+									<td>未体验过</td>
+									<td>远低于二者</td>
+									<td>难</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</section>
+					<section>
+						<h2>结论：React > Vue > Angular</h2>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## 那么，如何保证团队的代码规范呢
+
+							> 使用ESlint配合Airbnb指南来保持我们团队的代码风格。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## ESLint
+
+							> 使用 Lint 工具和代码风格检测工具，则可以辅助编码规范执行，有效控制代码质量。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							`install`
+							```
+							npm install --save-dev eslint eslint-config-airbnb
+							```
+							`.eslintrc`
+							```
+							{
+								"extends": "airbnb/base",
+								"globals": {
+							    "_id": true,
+							    "Swipe": true,
+							  }
+							}
+							```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## 路由管理：React-router
+
+							> 单页应用时代的到来，为之服务的前端路由系统是不可获取的一部分；
+							> 有独立的director，比较轻量，Backbone、Angular、React、Vue等都有其各自的路由
+							> React-router针对React做了很多UI展示的优化
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							简单示例：
+
+							```
+							import React from 'react';
+							import { Route, IndexRoute } from 'react-router';
+							import { App, Home, Profile } from '../containers';
+
+							export default (
+								<Route path="/" component={App}>
+									<Route path="profile/:username" component={Profile} />
+									<IndexRoute component={Home} />
+								</Route>
+							)
+							```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## 应用生命周期：Redux
+
+							> 我们有了视图和组件层，应用程序还需要管理数据状态和应用的生命周期。Redux也是毋容置疑的优胜者。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							除了React，Facebook展示了名叫Flux的单向数据流的设计模式。Flux最早用来解决和简化应用的状态管理，但是随之而来，很多开发者提出了不少新的问题如如何存储数据状态和从哪发送Ajax请求。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							为了解决这些问题，不少基于Flux模式之上的框架诞生了：Fluxible, Reflux, Alt, Flummox, Lux, Nuclear, Fluxxor 还有很多。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							这其中的类Flux的优雅实现最终赢得了社区的关注，它就是Redux。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							基础示例：
+							```
+							import { createStore } from 'redux'
+
+							// reducer
+							const todos = (state = [''], action) => {
+								switch (action.type) {
+									case 'ADD_TODO':
+										return Object.assign([], state, [action.text]);
+									default:
+										return state;
+								}
+							}
+
+							let store = createStore(todos, [ 'Use Redux' ])
+
+							// action creator
+							function addTodo(text) {
+								return {
+									type: 'ADD_TODO',
+									text
+								}
+							}
+
+							const handleChange =  () => {
+								console.log(store.getState());
+							}
+
+							let unsubscribe = store.subscribe(handleChange)
+
+							handleChange()
+
+							// dispatch
+							store.dispatch(addTodo('Read the docs'))
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## MORE INFO....
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## 应该还落下了不少
+
+							- 测试框架
+							- 工具库
+							- HTTP
+							- 更多精彩内容，课堂上继续...
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<h1>TO BE CONTINUED</h1>
+				</section>
+				<section>
+					<h1>QA</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
