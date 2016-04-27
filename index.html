@@ -53,7 +53,7 @@
 				<section>
 					<h2> 日新月异的前端技术 </h2>
 					<p>
-						就像是隧道终点前的光明，JS生态的最佳实践不再剧烈变更着，现在关于需要学什么越来越明确了
+						就像是隧道终点前的光明，JS生态的最佳实践不再剧烈变更着，现在关于需要学什么也越来越明确了
 					</p>
 				</section>
 
@@ -71,7 +71,7 @@
 						<p>在2016年，不能使用ES2015/ES2016进行开发的前端技术栈，会是最先停止增长并且走下坡路的！</p>
 					</section>
 					<section>
-						<p> 为什么使用ES6，它为我们带来了什么... </p>
+						<h2>ES6为我们带来了什么...</h2>
 					</section>
 					<section>
 						<h2>LET && CONST</h2>
@@ -121,10 +121,18 @@ drink(type = 'water'){
 						</code></pre>
 					</section>
 
-					<section>
-						<h2>More Features......</h2>
-					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## More Features
 
+							- 解构赋值
+							- class
+							- import & export
+							- Object扩展
+							- Generator
+							- ......
+						</script>
+					</section>
 				</section>
 
 				<section data-markdown>
@@ -144,7 +152,7 @@ drink(type = 'water'){
 
 					<section data-markdown>
 						<script type="text/template">
-							## 用途：JavaScript 代码转化
+							## Babel 的用途
 
 							- 帮你做ES2015 语法的转化，这些转化器能让你现在就使用最新的 JavaScript 语法，而不用等待浏览器提供支持。
 							- 可以对 JSX 支持，我们可以很方便的使用React的JSX语法封装组件，Babel会帮我们将JSX代码转换成浏览器可执行的代码。
@@ -218,17 +226,19 @@ drink(type = 'water'){
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							## How About Gulp/Grunt
+							## Webpack How To
 
-							> 基于工作流的工具，目前依然是很好用的，而且Gulp + Webpack也是一个很好的组合，相互结合也是不错的选择。各自发挥优势，功能互补。
-
+							- loaders
+							- middlreware中间件
+							- use in server服务端的使用
+							- 优化
 						</script>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
 							## BTW
 
-							Webpack 的学习也确实学习曲线有点陡峭，但一旦掌握，会发现很好用。
+							Webpack 的学习曲线也有点陡峭，但一旦掌握，会发现很好用。
 
 						</script>
 					</section>
@@ -445,17 +455,80 @@ drink(type = 'water'){
 					</section>
 				</section>
 
+				<section data-markdown>
+					<script type="text/template">
+						## 一个完整的项目怎么少得了测试
+
+					</script>
+				</section>
+
 				<section>
 					<section data-markdown>
 						<script type="text/template">
-							## 应该还落下了不少
+							## 测试工具和框架
 
-							- 测试框架
-							- 工具库
-							- HTTP
-							- 更多精彩内容，课堂上继续...
 						</script>
 					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## mocha
+
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## immutable.js
+
+							> 什么是immutable.js，为什么需要它。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							有人说 Immutable 可以给 React 应用带来数十倍的提升，也有人说 Immutable 的引入是近期 JavaScript 中伟大的发明，因为同期 React 太火，它的光芒被掩盖了。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							看以下代码
+							```
+foo={a: 1};
+bar=foo;
+bar.a=2;
+console.log(foo.a); // 2
+							```
+
+							这样做可以节约内存，但当应用复杂后，这就造成了非常大的隐患，Mutable 带来的优点变得得不偿失。而一般大家会使用深拷贝或是浅拷贝的方式来解决这个问题，但同时也带来了内存的消耗。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+- Immutable Data 就是一旦创建就不能再被更改的数据。
+- 对 Immutable 对象的任何修改或添加删除操作都会返回一个新的 Immutable 对象。
+- Immutable 实现的原理是 Persistent Data Structure（持久化数据结构），也就是使用旧数据创建新数据时，要保证旧数据同时可用且不变。
+- 同时为了避免 deepCopy 把所有节点都复制一遍带来的性能损耗，Immutable 使用了 Structural Sharing（结构共享），即如果对象树中一个节点发生变化，只修改这个节点和受它影响的父节点，其它节点则进行共享。
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+几个重要的数据结构：
+- Map：键值对集合，对应于 Object，ES6 也有专门的 Map 对象
+- List：有序可重复的列表，对应于 Array
+- Set：无序且不可重复的列表
+						</script>
+					</section>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## HTTP请求
+						- Promise
+						- axios
+						- node-fetch
+						- isomorphic-fetch
+					</script>
 				</section>
 
 				<section>
