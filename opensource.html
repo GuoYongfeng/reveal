@@ -1,0 +1,160 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>如何开发前端开源项目 -- 郭永峰</title>
+
+		<meta name="description" content="FE">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2> 如何开发前端开源项目 </h2>
+					<p>
+						<small>
+							Created by
+							<a href="https://github.com/GuoYongfeng">@iUAP前端技术部 郭永峰</a></small>
+					</p>
+				</section>
+
+        <section>
+					<section data-markdown>
+						<script type="text/template">
+							作为前端工程师的你，或是接触过前端项目的你，肯定用过或是听过很多前端相关的开源项目。那么，如何做一个开源项目呢？一个开源项目都有哪些注意点？如何参与到开源社区一起贡献代码？今天我们一起来聊聊这个话题。
+						</script>
+					</section>
+				</section>
+
+        <section>
+					<section data-markdown>
+						<script type="text/template">
+							## 开源平台Github
+
+							- 全球最大的社交编程及代码托管网站，**人气高**，交流方便，聚集了志同道合的人
+							- 完善的机制：issue，开源分享，代码托管，wiki，release功能，ci，文档机制等
+
+						</script>
+					</section>
+				</section>
+
+        <section>
+					<section data-markdown>
+						<script type="text/template">
+							# 需要掌握的基本技能
+
+						</script>
+					</section>
+          <section data-markdown>
+						<script type="text/template">
+							## Git
+
+						</script>
+					</section>
+          <section data-markdown>
+						<script type="text/template">
+							## 相关知识
+
+              - 包管理工具
+              - 版本号命名规则
+              - 开源协议
+
+						</script>
+					</section>
+          <section data-markdown>
+						<script type="text/template">
+							## 需要掌握的基本技能
+
+						</script>
+					</section>
+				</section>
+
+        <section>
+					<section data-markdown>
+						<script type="text/template">
+							## 掌握基本技能
+
+              - 全球最大的社交编程及代码托管网站，人气高，交流方便，聚集了志同道合的人
+              - 完善的机制：issue，开源分享，代码托管，wiki，release功能，ci，文档机制等
+						</script>
+					</section>
+				</section>
+
+
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="">guoyff@yonyou.com</a> <br>
+						- <a href="http://design.yyuap.com/">http://design.yyuap.com/</a>
+					</p>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				],
+
+			});
+
+			Reveal.configure({
+				backgroundTransition: 'zoom'
+			})
+
+		</script>
+
+	</body>
+</html>
